@@ -1,0 +1,467 @@
+:root {
+  --primary: #ffffff;
+  --secondary: #000000;
+  --background: #18181b;
+  --surface: #111827;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --border: rgba(255, 255, 255, 0.1);
+
+  color: var(--text-primary);
+  background: var(--background);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--background);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.mono-label {
+  color: var(--text-secondary);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.map-shell {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-container {
+  font: inherit;
+  background: #0f172a;
+}
+
+.leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.8) contrast(0.95) brightness(0.7);
+}
+
+.leaflet-control-attribution {
+  background: rgba(15, 23, 42, 0.8) !important;
+  color: var(--text-secondary) !important;
+  font-size: 10px !important;
+  backdrop-filter: blur(8px);
+}
+
+.leaflet-control-attribution a {
+  color: #fff !important;
+}
+
+.cctv-pin {
+  position: relative;
+  display: grid;
+  place-items: start center;
+  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.65));
+}
+
+.pin-body {
+  position: relative;
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 2px solid #020617;
+  border-radius: 9999px 9999px 9999px 4px;
+  background: #f8fafc;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.75);
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.pin-body span {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #020617;
+  transform: rotate(45deg);
+}
+
+.cctv-pin:hover .pin-body {
+  transform: rotate(-45deg) translateY(-2px);
+}
+
+.cctv-pin.active .pin-body {
+  width: 32px;
+  height: 32px;
+  border-color: #dbeafe;
+  background: #3b82f6;
+  box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.32), 0 0 22px rgba(96, 165, 250, 0.95), inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+}
+
+.cctv-pin.active .pin-body span {
+  width: 11px;
+  height: 11px;
+  background: #ffffff;
+}
+
+.pin-pulse {
+  position: absolute;
+  bottom: -2px;
+  width: 28px;
+  height: 10px;
+  border-radius: 9999px;
+  background: rgba(59, 130, 246, 0.36);
+  filter: blur(3px);
+}
+
+
+.leaflet-popup-content-wrapper {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(16px);
+}
+
+.leaflet-popup-tip {
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.map-popup {
+  display: grid;
+  min-width: 140px;
+  gap: 4px;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  padding: 4px;
+  text-align: left;
+}
+
+.map-popup strong {
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: none;
+}
+
+.map-popup span {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.map-header {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(17, 24, 39, 0.8);
+  padding: 16px 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(16px);
+}
+
+.map-header .mono-label {
+  margin: 0 0 4px;
+}
+
+.map-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.status-pill {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.camera-panel {
+  position: absolute;
+  top: 110px;
+  left: 24px;
+  z-index: 10;
+  display: flex;
+  width: 320px;
+  max-height: calc(100vh - 134px);
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(17, 24, 39, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(16px);
+}
+
+.camera-panel input {
+  height: 40px;
+  margin: 16px 16px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.camera-panel input:focus {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 0 16px 16px;
+  scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filters button {
+  flex: 0 0 auto;
+  height: 28px;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--text-secondary);
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.filters button.active {
+  border-color: #fff;
+  background: #fff;
+  color: #000;
+}
+
+.camera-list {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  border-top: 1px solid var(--border);
+  padding: 8px;
+  scrollbar-color: rgba(255, 255, 255, 0.32) transparent;
+  scrollbar-width: thin;
+}
+
+.camera-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.camera-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.camera-list::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.26);
+  background-clip: content-box;
+}
+
+.camera-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.42);
+  background-clip: content-box;
+}
+
+.camera-row {
+  display: grid;
+  width: 100%;
+  gap: 4px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  padding: 12px;
+  text-align: left;
+}
+
+.camera-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.camera-row.selected {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.camera-row strong {
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.camera-row span {
+  color: var(--text-secondary);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+}
+
+.camera-row.selected span {
+  color: #fff;
+}
+
+.player-card {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  z-index: 10;
+  width: 400px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(17, 24, 39, 0.9);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(16px);
+}
+
+.player-frame {
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  object-fit: contain;
+}
+
+.player-info {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+}
+
+.player-info div {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.player-info .mono-label {
+  margin: 0;
+}
+
+.player-info strong {
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.player-info span {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.player-info a {
+  flex: 0 0 auto;
+  border-radius: 9999px;
+  background: #fff;
+  color: #000;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: 860px) {
+  html, body {
+    overflow: auto;
+  }
+  
+  .map-shell {
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .map {
+    position: relative;
+    height: 50vh;
+    min-height: 400px;
+    z-index: 1;
+  }
+
+  .map-header {
+    position: static;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .camera-panel {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-radius: 0;
+    border: none;
+    background: var(--surface);
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+  
+  .camera-list {
+    max-height: 400px;
+  }
+
+  .player-card {
+    position: static;
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+}
