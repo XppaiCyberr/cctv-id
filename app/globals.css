@@ -345,6 +345,52 @@ button {
   color: #fff;
 }
 
+.stream-errors {
+  flex: 0 0 auto;
+  border-top: 1px solid var(--border);
+  padding: 8px;
+}
+
+.stream-errors-title {
+  margin: 0 4px 6px;
+  color: #fca5a5;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.stream-error-row {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  gap: 2px;
+  border: 0;
+  border-radius: 7px;
+  background: rgba(239, 68, 68, 0.08);
+  color: #fee2e2;
+  padding: 7px 8px;
+  text-align: left;
+}
+
+.stream-error-row + .stream-error-row {
+  margin-top: 4px;
+}
+
+.stream-error-row span {
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stream-error-row small {
+  color: #fca5a5;
+  font-size: 10px;
+}
+
 .player-card {
   position: absolute;
   right: 24px;

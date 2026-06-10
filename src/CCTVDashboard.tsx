@@ -24,7 +24,7 @@ const activeCameraIcon = L.divIcon({
   iconAnchor: [16, 42],
 });
 
-function VideoPlayer({ camera }: { camera: CCTV }) {
+function VideoPlayer({ camera, onError }: { camera: CCTV; onError: (camera: CCTV, message: string) => void }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -33,8 +33,17 @@ function VideoPlayer({ camera }: { camera: CCTV }) {
 
     let hls: Hls | null = null;
 
+    const handleVideoError = () => {
+      onError(camera, 'Playback failed');
+    };
+
+    video.addEventListener('error', handleVideoError);
+
     if (Hls.isSupported()) {
       hls = new Hls({ lowLatencyMode: true });
+      hls.on(Hls.Events.ERROR, (_event, data) => {
+        onError(camera, data.details || data.type || 'HLS failed');
+      });
       hls.loadSource(camera.streamUrl);
       hls.attachMedia(video);
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
@@ -42,11 +51,12 @@ function VideoPlayer({ camera }: { camera: CCTV }) {
     }
 
     return () => {
+      video.removeEventListener('error', handleVideoError);
       hls?.destroy();
       video.removeAttribute('src');
       video.load();
     };
-  }, [camera]);
+  }, [camera, onError]);
 
   return <video ref={videoRef} controls autoPlay muted playsInline />;
 }
@@ -65,6 +75,14 @@ export default function CCTVDashboard() {
   const [activeGroup, setActiveGroup] = useState<CCTVGroup | 'all'>('all');
   const [query, setQuery] = useState('');
   const [activeCamera, setActiveCamera] = useState<CCTV>(cctvs[0]);
+  const [failedStreams, setFailedStreams] = useState<Array<{ id: string; name: string; group: CCTVGroup; message: string }>>([]);
+
+  const handleStreamError = (camera: CCTV, message: string) => {
+    setFailedStreams((current) => {
+      if (current.some((failed) => failed.id === camera.id)) return current;
+      return [{ id: camera.id, name: camera.name, group: camera.group, message }, ...current].slice(0, 8);
+    });
+  };
 
   const filteredCctvs = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -118,11 +136,22 @@ export default function CCTVDashboard() {
             </button>
           ))}
         </div>
+        {failedStreams.length > 0 && (
+          <div className="stream-errors">
+            <div className="stream-errors-title">Stream issues</div>
+            {failedStreams.map((failed) => (
+              <button key={failed.id} className="stream-error-row" onClick={() => setActiveCamera(cctvs.find((camera) => camera.id === failed.id) || activeCamera)} title={failed.message}>
+                <span>{failed.name}</span>
+                <small>{groupLabels[failed.group]}</small>
+              </button>
+            ))}
+          </div>
+        )}
       </aside>
 
       <section className="player-card">
         <div className="player-frame">
-          <VideoPlayer camera={activeCamera} />
+          <VideoPlayer camera={activeCamera} onError={handleStreamError} />
         </div>
         <div className="player-info">
           <div>
