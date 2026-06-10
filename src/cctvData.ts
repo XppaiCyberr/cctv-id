@@ -1,4 +1,4 @@
-export type CCTVGroup = 'salatiga' | 'magelang' | 'boyolali' | 'wonosobo';
+export type CCTVGroup = 'salatiga' | 'magelang' | 'boyolali' | 'wonosobo' | 'pekalongan';
 
 export type CCTV = {
   id: string;
@@ -15,6 +15,7 @@ export const groupLabels: Record<CCTVGroup, string> = {
   magelang: 'Magelang',
   boyolali: 'Boyolali',
   wonosobo: 'Wonosobo',
+  pekalongan: 'Pekalongan',
 };
 
 export const cctvs: CCTV[] = [
@@ -251,4 +252,20 @@ export const cctvs: CCTV[] = [
   { id: 'wonosobo-64', name: 'CCTV SAMBON - Sambon', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/720f7911-9f78-4b0c-bc5c-8cd54814492d.m3u8', lat: -7.38342792, lng: 109.96978641 },
   { id: 'wonosobo-65', name: 'CCTV Tugu Carica', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/bc3ddfc8-1012-4a0f-82aa-bc060a89e072.m3u8', lat: -7.37560222, lng: 109.94397819 },
   { id: 'wonosobo-66', name: 'S3 Andongsili - CCTV 1', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/6f539207-8463-490c-ad24-22c796c855fc.m3u8', lat: -7.327863, lng: 109.91186142 },
+  { id: 'pekalongan-1', name: 'CCTV Bojong - Kajen', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/bojong-kajen/index.m3u8', lat: -6.95500635, lng: 109.60766179 },
+  { id: 'pekalongan-2', name: 'CCTV Bojong - Surobayan', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/bojong-surobayan/index.m3u8', lat: -6.954883, lng: 109.607719 },
+  { id: 'pekalongan-3', name: 'CCTV Bojong - Wiradesa', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/bojong-wiradesa/index.m3u8', lat: -6.95481929, lng: 109.60772181 },
+  { id: 'pekalongan-4', name: 'CCTV Sedayu - Bojong', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/sedayu-bojong/index.m3u8', lat: -6.9772407, lng: 109.6342495 },
+  { id: 'pekalongan-5', name: 'CCTV Sedayu - Kajen', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/sedayu-kajen/index.m3u8', lat: -6.9773113, lng: 109.6343929 },
+  { id: 'pekalongan-6', name: 'CCTV Sedayu - Kedungwuni', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/sedayu-kedungwuni/index.m3u8', lat: -6.977337, lng: 109.634299 },
+  { id: 'pekalongan-7', name: 'CCTV Titik Nol Kajen - Barat', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/titiknolkajen-barat/index.m3u8', lat: -7.0271, lng: 109.5809 },
+  { id: 'pekalongan-8', name: 'CCTV Titik Nol Kajen - Selatan', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/titiknolkajen-selatan/index.m3u8', lat: -7.027064, lng: 109.581024 },
+  { id: 'pekalongan-9', name: 'CCTV Titik Nol Kajen - Utara', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/titiknolkajen-utara/index.m3u8', lat: -7.027026, lng: 109.581255 },
+  { id: 'pekalongan-10', name: 'CCTV Wiradesa - Barat', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/wiradesa-barat/index.m3u8', lat: -6.8913951, lng: 109.61720051 },
+  { id: 'pekalongan-11', name: 'CCTV Wiradesa - Selatan', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/wiradesa-selatan/index.m3u8', lat: -6.89159414, lng: 109.61740302 },
+  { id: 'pekalongan-12', name: 'CCTV Wiradesa - Timur', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/wiradesa-timur/index.m3u8', lat: -6.89149961, lng: 109.6176062 },
+  { id: 'pekalongan-13', name: 'CCTV Wiradesa - Utara', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/wiradesa-utara/index.m3u8', lat: -6.89145102, lng: 109.61742045 },
+  { id: 'pekalongan-14', name: 'CCTV Tuguduren Karanganyar 1', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/tuguduren-karanganyar-1/index.m3u8', lat: -7.0318, lng: 109.625164 },
+  { id: 'pekalongan-15', name: 'CCTV Tuguduren Karanganyar 2', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/tuguduren-karanganyar-2/index.m3u8', lat: -7.031825, lng: 109.625234 },
+  { id: 'pekalongan-16', name: 'CCTV Tuguduren Karanganyar 3', group: 'pekalongan', manager: 'Pemerintah Kabupaten Pekalongan', streamUrl: 'https://cctv.pekalongankab.go.id/hls/tuguduren-karanganyar-3/index.m3u8', lat: -7.031798, lng: 109.625195 },
 ];
