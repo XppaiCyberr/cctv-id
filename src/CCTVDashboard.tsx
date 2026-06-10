@@ -7,7 +7,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { MapContainer, Marker, TileLayer, useMap, ZoomControl } from 'react-leaflet';
 import { CCTV, CCTVGroup, cctvs, groupLabels } from './cctvData';
 
-const groups: Array<CCTVGroup | 'all'> = ['all', 'salatiga', 'magelang'];
+const groups: Array<CCTVGroup | 'all'> = ['all', 'salatiga', 'magelang', 'boyolali'];
 const salatigaCenter: [number, number] = [-7.330958, 110.500573];
 
 const cameraIcon = L.divIcon({
