@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Salatiga CCTV Map',
-  description: 'Interactive CCTV map for Salatiga city public streams.',
+  title: 'CCTV ID',
+  description: 'Interactive public CCTV map for Indonesian regional streams.',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
