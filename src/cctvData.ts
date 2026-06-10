@@ -1,4 +1,4 @@
-export type CCTVGroup = 'salatiga' | 'magelang' | 'boyolali';
+export type CCTVGroup = 'salatiga' | 'magelang' | 'boyolali' | 'wonosobo';
 
 export type CCTV = {
   id: string;
@@ -14,6 +14,7 @@ export const groupLabels: Record<CCTVGroup, string> = {
   salatiga: 'Salatiga',
   magelang: 'Magelang',
   boyolali: 'Boyolali',
+  wonosobo: 'Wonosobo',
 };
 
 export const cctvs: CCTV[] = [
@@ -207,4 +208,47 @@ export const cctvs: CCTV[] = [
   { id: 'boyolali-97', name: 'CCTV Klego Barat', group: 'boyolali', manager: 'Diskominfo Kab. Boyolali', streamUrl: 'https://stream.boyolali.go.id/uTX4MuMtvRra6OkNHlXqNOR6WMtkwP/hls/fQqDdrj4Xd/voLTLTRGyu/s.m3u8', lat: -7.3556273093631, lng: 110.69145393353449 },
   { id: 'boyolali-96', name: 'CCTV Klego Timur', group: 'boyolali', manager: 'Diskominfo Kab. Boyolali', streamUrl: 'https://stream.boyolali.go.id/uTX4MuMtvRra6OkNHlXqNOR6WMtkwP/hls/fQqDdrj4Xd/AcBzvk0PZf/s.m3u8', lat: -7.355533406561981, lng: 110.69171249291682 },
   { id: 'boyolali-95', name: 'CCTV Simpang Andong', group: 'boyolali', manager: 'Diskominfo Kab. Boyolali', streamUrl: 'https://stream.boyolali.go.id/uTX4MuMtvRra6OkNHlXqNOR6WMtkwP/hls/fQqDdrj4Xd/hUVmmBzPfV/s.m3u8', lat: -7.3755459609506335, lng: 110.7681101565756 },
+  { id: 'wonosobo-6', name: 'S4 KODIM', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/bead7264-1d92-48af-9b1c-9eb9cffb60fb.m3u8', lat: -7.35768891, lng: 109.90227861 },
+  { id: 'wonosobo-1', name: 'PERTIGAAN PAHLAWAN - PAHLAWAN 1', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/c470e297-eeb0-405f-b362-aa662bfd2c07.m3u8', lat: -7.36529148, lng: 109.9212567 },
+  { id: 'wonosobo-13', name: 'S4 JOGONEGORO', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/462e32ca-1d07-4db3-b41d-5024c6221fef.m3u8', lat: -7.37245767, lng: 109.90035841 },
+  { id: 'wonosobo-14', name: 'POS POLISI TIENG - GP TIENG', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/c0354cd3-84a9-4de9-9308-9d820636e941.m3u8', lat: -7.23331572, lng: 109.93799346 },
+  { id: 'wonosobo-16', name: 'S4 TITIK 0 KM - TITIK 0 KM (ARAH TIMUR)', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/f525acfe-7562-413d-b79c-3ec1d684970a.m3u8', lat: -7.36156629, lng: 109.90472782 },
+  { id: 'wonosobo-18', name: 'S4 SAMSAT - ARAH UTARA', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/e4e3c81b-030f-4ba4-965d-6df7b308fce8.m3u8', lat: -7.35983569, lng: 109.90380406 },
+  { id: 'wonosobo-19', name: 'S3 SIDOJOYO', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/8faf026a-5af2-4135-9d25-4a3409bf894c.m3u8', lat: -7.3609955, lng: 109.91024137 },
+  { id: 'wonosobo-21', name: 'S4 SMP 1 WONOSOBO - ARAH UTARA', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/de86b0fe-0bf9-4dab-98b4-59e5d3e3b676.m3u8', lat: -7.35885677, lng: 109.90167975 },
+  { id: 'wonosobo-22', name: 'S4 SMP 1 WONOSOBO - ARAH TIMUR', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/4fcf2216-3422-46f7-b98f-a44c87bb6631.m3u8', lat: -7.35885677, lng: 109.90167975 },
+  { id: 'wonosobo-23', name: 'S4 SMP 1 WONOSOBO - ARAH SELATAN', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/e825de7b-523e-4b03-a711-e2b38a95d83f.m3u8', lat: -7.35885677, lng: 109.90167975 },
+  { id: 'wonosobo-24', name: 'S4 PLAZA - ARAH SELATAN', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/475943fa-35dd-47fa-9372-c2417e7d5ef0.m3u8', lat: -7.36407738, lng: 109.90205526 },
+  { id: 'wonosobo-25', name: 'S4 PLAZA - ARAH BARAT', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/f2503efd-4c91-4237-8b0e-9acc761228ea.m3u8', lat: -7.36407738, lng: 109.90205526 },
+  { id: 'wonosobo-26', name: 'S4 PLAZA - ARAH UTARA', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/9d1fe5ab-a46f-4d88-a664-245c94f04398.m3u8', lat: -7.36407738, lng: 109.90205526 },
+  { id: 'wonosobo-27', name: 'S4 PLAZA - ARAH TIMUR', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/f1b564c9-6d43-4395-8e9b-94a7d1f3d233.m3u8', lat: -7.36407738, lng: 109.90205526 },
+  { id: 'wonosobo-31', name: 'S4 SAWANGAN - ARAH BARAT', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/8956c36e-a4fe-49c6-a175-2003ead6167a.m3u8', lat: -7.42348906, lng: 109.84004796 },
+  { id: 'wonosobo-59', name: 'S4 SAWANGAN - ARAH TIMUR', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/d19948f2-2b6c-42aa-89e3-f68ecd05f8f6.m3u8', lat: -7.42348906, lng: 109.84004796 },
+  { id: 'wonosobo-33', name: 'S4 HONGGODERPO - HONGGODERPO', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/92b0d28a-a399-41a9-b23b-60e0c79750ca.m3u8', lat: -7.36881593, lng: 109.90099955 },
+  { id: 'wonosobo-34', name: 'S4 KAUMAN - KAUMAN', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/a0c05468-189c-40f2-befe-c81cf3d2f051.m3u8', lat: -7.3552388, lng: 109.90376222 },
+  { id: 'wonosobo-37', name: 'CCTV DINSOSPMD - Gerbang', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/7913a914-b84c-425e-9e51-1195c9e07b41.m3u8', lat: -7.35653714, lng: 109.90610003 },
+  { id: 'wonosobo-39', name: 'KANTOR KEC. WATUMALANG - Gerbang', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/eafdbd5b-86b2-4415-a53c-a62641b483de.m3u8', lat: -7.3300057, lng: 109.85901117 },
+  { id: 'wonosobo-40', name: 'TITIK 0 DIENG - CCTV BALAI DESA DIENG 1', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/96a0d373-1a38-41cb-bf44-5e0fdfea1dca.m3u8', lat: -7.20427426, lng: 109.9112606 },
+  { id: 'wonosobo-41', name: 'TITIK 0 DIENG - CCTV BALAI DESA DIENG 2', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/676ee44a-e78f-4293-a83a-01039b724130.m3u8', lat: -7.20427426, lng: 109.9112606 },
+  { id: 'wonosobo-43', name: 'TPR GARUNG - CCTV 1', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/bfa1e42d-8eea-47ff-a5d3-02755be16dcd.m3u8', lat: -7.29046523, lng: 109.92635608 },
+  { id: 'wonosobo-45', name: 'TPR GARUNG - CCTV 2', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/e65e588f-2b7d-4c7f-bde9-33d35c42b098.m3u8', lat: -7.29046523, lng: 109.92635608 },
+  { id: 'wonosobo-46', name: 'S4 BANKESBANGPOL - ARAH UTARA', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/d1ef66ce-7186-4439-a008-14975a55e32e.m3u8', lat: -7.35631369, lng: 109.90526319 },
+  { id: 'wonosobo-48', name: 'S4 SETDA - ARAH SELATAN', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/3cc3fd74-60a5-4e9d-917c-84cececfe18b.m3u8', lat: -7.35852691, lng: 109.90430832 },
+  { id: 'wonosobo-51', name: 'S4 SETDA - ARAH BARAT', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/8b54c634-8c95-475d-917a-6e3662a6b734.m3u8', lat: -7.35852691, lng: 109.90430832 },
+  { id: 'wonosobo-52', name: 'S4 SETDA - ARAH UTARA', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/73ad9338-3558-44db-82a0-7c5737c37211.m3u8', lat: -7.35852691, lng: 109.90430832 },
+  { id: 'wonosobo-49', name: 'RS PKU MUHAMADIYAH WONOSOBO - CCTV 1', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/ed9415dd-4662-4b89-b5c1-edf2a0bd7ffe.m3u8', lat: -7.37329619, lng: 109.94033225 },
+  { id: 'wonosobo-50', name: 'RS PKU MUHAMADIYAH WONOSOBO - CCTV 2', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/aa674e87-4514-4f0d-826d-97d932954c2f.m3u8', lat: -7.37329619, lng: 109.94033225 },
+  { id: 'wonosobo-53', name: 'POS POLISI KERTEK - CCTV 1', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/a48ccb53-937e-487c-8867-39b355ee048b.m3u8', lat: -7.38917724, lng: 109.9636817 },
+  { id: 'wonosobo-56', name: 'POS POLISI KERTEK - CCTV 2', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/6edeb4fb-62ec-40f9-abd8-8cc130c22bb6.m3u8', lat: -7.38917724, lng: 109.9636817 },
+  { id: 'wonosobo-54', name: 'TIRTA AJI WONOSOBO - CCTV 1', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/a0b7fb9e-7b70-4137-83dc-69d9607d33ae.m3u8', lat: -7.35561291, lng: 109.90437269 },
+  { id: 'wonosobo-55', name: 'PASAR INDUK - JEMBATAN', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/433b7d40-9e49-4f9c-ab03-94a01fcebddf.m3u8', lat: -7.36269946, lng: 109.90218401 },
+  { id: 'wonosobo-57', name: 'CCTV DPRD - GERBANG', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/ef6e78bc-fe59-4004-b28e-efe8a34f8965.m3u8', lat: -7.35687381, lng: 109.90488768 },
+  { id: 'wonosobo-58', name: 'S4 SRUNI - ARAH UTARA', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/706aca3c-7815-4156-b748-c3a5a87eda84.m3u8', lat: -7.36758336, lng: 109.90358949 },
+  { id: 'wonosobo-60', name: 'S4 PASAR IKAN - CCTV', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/57dce5a5-73ab-441c-bedd-f4759047ab44.m3u8', lat: -7.39070936, lng: 109.96311843 },
+  { id: 'wonosobo-61', name: 'KANTOR KEC. LEKSONO - Gerbang', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/e77a968e-1bef-4372-bda6-77e85ae2736e.m3u8', lat: -7.41811787, lng: 109.85615194 },
+  { id: 'wonosobo-62', name: 'CCTV Prumbanan - Prumbanan', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/afafba8e-ca98-42c9-a8cb-dfe9218cd367.m3u8', lat: -7.37587354, lng: 109.97569799 },
+  { id: 'wonosobo-63', name: 'CCTV RECO - Perbatasan', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/82baf357-d78d-4393-978f-aff9ebd579a8.m3u8', lat: -7.34493117, lng: 110.02819419 },
+  { id: 'wonosobo-64', name: 'CCTV SAMBON - Sambon', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/720f7911-9f78-4b0c-bc5c-8cd54814492d.m3u8', lat: -7.38342792, lng: 109.96978641 },
+  { id: 'wonosobo-65', name: 'CCTV Tugu Carica', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/bc3ddfc8-1012-4a0f-82aa-bc060a89e072.m3u8', lat: -7.37560222, lng: 109.94397819 },
+  { id: 'wonosobo-66', name: 'S3 Andongsili - CCTV 1', group: 'wonosobo', manager: 'Pemerintah Kabupaten Wonosobo', streamUrl: 'https://mata.wonosobokab.go.id/memfs/6f539207-8463-490c-ad24-22c796c855fc.m3u8', lat: -7.327863, lng: 109.91186142 },
 ];
