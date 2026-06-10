@@ -77,6 +77,7 @@ export default function CCTVDashboard() {
   const [activeCamera, setActiveCamera] = useState<CCTV>(cctvs[0]);
   const [failedStreams, setFailedStreams] = useState<Array<{ id: string; name: string; group: CCTVGroup; message: string }>>([]);
   const [showStreamErrors, setShowStreamErrors] = useState(false);
+  const [showCameraPanel, setShowCameraPanel] = useState(true);
 
   const handleStreamError = (camera: CCTV, message: string) => {
     setFailedStreams((current) => {
@@ -120,23 +121,31 @@ export default function CCTVDashboard() {
         <div className="status-pill">{filteredCctvs.length}/{cctvs.length}</div>
       </header>
 
-      <aside className="camera-panel">
-        <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search camera" />
-        <nav className="filters">
-          {groups.map((group) => (
-            <button key={group} className={activeGroup === group ? 'active' : ''} onClick={() => setActiveGroup(group)}>
-              {group === 'all' ? 'All' : groupLabels[group]}
-            </button>
-          ))}
-        </nav>
-        <div className="camera-list">
-          {filteredCctvs.map((camera) => (
-            <button key={camera.id} className={`camera-row ${activeCamera.id === camera.id ? 'selected' : ''}`} onClick={() => setActiveCamera(camera)}>
-              <strong>{camera.name}</strong>
-              <span>{groupLabels[camera.group]}</span>
-            </button>
-          ))}
-        </div>
+      <aside className={`camera-panel ${showCameraPanel ? '' : 'collapsed'}`}>
+        <button className="camera-panel-toggle" onClick={() => setShowCameraPanel((show) => !show)}>
+          <span>Cameras</span>
+          <strong>{filteredCctvs.length}</strong>
+        </button>
+        {showCameraPanel && (
+          <>
+            <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search camera" />
+            <nav className="filters">
+              {groups.map((group) => (
+                <button key={group} className={activeGroup === group ? 'active' : ''} onClick={() => setActiveGroup(group)}>
+                  {group === 'all' ? 'All' : groupLabels[group]}
+                </button>
+              ))}
+            </nav>
+            <div className="camera-list">
+              {filteredCctvs.map((camera) => (
+                <button key={camera.id} className={`camera-row ${activeCamera.id === camera.id ? 'selected' : ''}`} onClick={() => setActiveCamera(camera)}>
+                  <strong>{camera.name}</strong>
+                  <span>{groupLabels[camera.group]}</span>
+                </button>
+              ))}
+            </div>
+          </>
+        )}
       </aside>
 
       {failedStreams.length > 0 && (

@@ -227,6 +227,39 @@ button {
   backdrop-filter: blur(16px);
 }
 
+.camera-panel.collapsed {
+  width: 160px;
+}
+
+.camera-panel-toggle {
+  display: flex;
+  flex: 0 0 auto;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  padding: 9px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.camera-panel-toggle strong {
+  display: grid;
+  min-width: 24px;
+  height: 20px;
+  place-items: center;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+}
+
 .camera-panel input {
   flex: 0 0 auto;
   height: 40px;
@@ -526,6 +559,10 @@ video {
     background: var(--surface);
     backdrop-filter: none;
     box-shadow: none;
+  }
+
+  .camera-panel.collapsed {
+    width: 100%;
   }
   
   .camera-list {
