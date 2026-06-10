@@ -76,6 +76,7 @@ export default function CCTVDashboard() {
   const [query, setQuery] = useState('');
   const [activeCamera, setActiveCamera] = useState<CCTV>(cctvs[0]);
   const [failedStreams, setFailedStreams] = useState<Array<{ id: string; name: string; group: CCTVGroup; message: string }>>([]);
+  const [showStreamErrors, setShowStreamErrors] = useState(false);
 
   const handleStreamError = (camera: CCTV, message: string) => {
     setFailedStreams((current) => {
@@ -136,18 +137,26 @@ export default function CCTVDashboard() {
             </button>
           ))}
         </div>
-        {failedStreams.length > 0 && (
-          <div className="stream-errors">
-            <div className="stream-errors-title">Stream issues</div>
-            {failedStreams.map((failed) => (
-              <button key={failed.id} className="stream-error-row" onClick={() => setActiveCamera(cctvs.find((camera) => camera.id === failed.id) || activeCamera)} title={failed.message}>
-                <span>{failed.name}</span>
-                <small>{groupLabels[failed.group]}</small>
-              </button>
-            ))}
-          </div>
-        )}
       </aside>
+
+      {failedStreams.length > 0 && (
+        <aside className={`stream-errors ${showStreamErrors ? 'open' : ''}`}>
+          <button className="stream-errors-toggle" onClick={() => setShowStreamErrors((show) => !show)}>
+            <span>Stream issues</span>
+            <strong>{failedStreams.length}</strong>
+          </button>
+          {showStreamErrors && (
+            <div className="stream-errors-list">
+              {failedStreams.map((failed) => (
+                <button key={failed.id} className="stream-error-row" onClick={() => setActiveCamera(cctvs.find((camera) => camera.id === failed.id) || activeCamera)} title={failed.message}>
+                  <span>{failed.name}</span>
+                  <small>{groupLabels[failed.group]}</small>
+                </button>
+              ))}
+            </div>
+          )}
+        </aside>
+      )}
 
       <section className="player-card">
         <div className="player-frame">

@@ -346,19 +346,51 @@ button {
 }
 
 .stream-errors {
-  flex: 0 0 auto;
-  border-top: 1px solid var(--border);
-  padding: 8px;
+  position: absolute;
+  top: 96px;
+  right: 24px;
+  z-index: 11;
+  width: 210px;
+  overflow: hidden;
+  border: 1px solid rgba(248, 113, 113, 0.24);
+  border-radius: 10px;
+  background: rgba(17, 24, 39, 0.82);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(16px);
 }
 
-.stream-errors-title {
-  margin: 0 4px 6px;
-  color: #fca5a5;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
+.stream-errors-toggle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 0;
+  background: rgba(239, 68, 68, 0.08);
+  color: #fee2e2;
+  padding: 7px 9px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  text-align: left;
+}
+
+.stream-errors-toggle strong {
+  display: grid;
+  min-width: 18px;
+  height: 18px;
+  place-items: center;
+  border-radius: 9999px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 10px;
+}
+
+.stream-errors-list {
+  display: grid;
+  gap: 3px;
+  max-height: 180px;
+  overflow: auto;
+  padding: 5px;
 }
 
 .stream-error-row {
@@ -367,20 +399,16 @@ button {
   min-width: 0;
   gap: 2px;
   border: 0;
-  border-radius: 7px;
+  border-radius: 6px;
   background: rgba(239, 68, 68, 0.08);
   color: #fee2e2;
-  padding: 7px 8px;
+  padding: 5px 6px;
   text-align: left;
-}
-
-.stream-error-row + .stream-error-row {
-  margin-top: 4px;
 }
 
 .stream-error-row span {
   overflow: hidden;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -388,7 +416,7 @@ button {
 
 .stream-error-row small {
   color: #fca5a5;
-  font-size: 10px;
+  font-size: 9px;
 }
 
 .player-card {
@@ -502,6 +530,14 @@ video {
   
   .camera-list {
     max-height: 400px;
+  }
+
+  .stream-errors {
+    position: fixed;
+    top: auto;
+    right: 12px;
+    bottom: 12px;
+    width: min(210px, calc(100vw - 24px));
   }
 
   .player-card {
