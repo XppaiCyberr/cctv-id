@@ -228,6 +228,7 @@ button {
 }
 
 .camera-panel input {
+  flex: 0 0 auto;
   height: 40px;
   margin: 16px 16px 12px;
   border: 1px solid var(--border);
@@ -245,6 +246,7 @@ button {
 
 .filters {
   display: flex;
+  flex: 0 0 auto;
   gap: 8px;
   overflow-x: auto;
   padding: 0 16px 16px;
@@ -305,6 +307,7 @@ button {
 
 .camera-row {
   display: grid;
+  min-width: 0;
   width: 100%;
   gap: 4px;
   border: 0;
