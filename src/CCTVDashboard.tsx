@@ -7,7 +7,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { MapContainer, Marker, TileLayer, useMap, ZoomControl } from 'react-leaflet';
 import { CCTV, CCTVGroup, cctvs, groupLabels } from './cctvData';
 
-const groups: Array<CCTVGroup | 'all'> = ['all', 'atcs', 'diponegoro', 'sukowati', 'magelang'];
+const groups: Array<CCTVGroup | 'all'> = ['all', 'salatiga', 'magelang'];
 const salatigaCenter: [number, number] = [-7.330958, 110.500573];
 
 const cameraIcon = L.divIcon({
@@ -95,7 +95,7 @@ export default function CCTVDashboard() {
 
       <header className="map-header">
         <div>
-          <p className="mono-label">SALATIGA CCTV</p>
+          <p className="mono-label">CCTV ID</p>
           <h1>Live map</h1>
         </div>
         <div className="status-pill">{filteredCctvs.length}/{cctvs.length}</div>
