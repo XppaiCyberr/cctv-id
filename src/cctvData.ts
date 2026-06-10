@@ -12,7 +12,7 @@ export type CCTV = {
 
 export const groupLabels: Record<CCTVGroup, string> = {
   salatiga: 'Salatiga',
-  magelang: 'Kota Magelang',
+  magelang: 'Magelang',
   boyolali: 'Boyolali',
 };
 
