@@ -96,6 +96,17 @@ export default function CCTVDashboard() {
     });
   }, [activeGroup, query]);
 
+  const groupCounts = useMemo(() => {
+    return cctvs.reduce<Record<CCTVGroup | 'all', number>>(
+      (counts, camera) => {
+        counts.all += 1;
+        counts[camera.group] += 1;
+        return counts;
+      },
+      { all: 0, salatiga: 0, magelang: 0, boyolali: 0, wonosobo: 0, pekalongan: 0 },
+    );
+  }, []);
+
   useEffect(() => {
     if (!filteredCctvs.some((camera) => camera.id === activeCamera.id) && filteredCctvs[0]) {
       setActiveCamera(filteredCctvs[0]);
@@ -132,7 +143,8 @@ export default function CCTVDashboard() {
             <nav className="filters">
               {groups.map((group) => (
                 <button key={group} className={activeGroup === group ? 'active' : ''} onClick={() => setActiveGroup(group)}>
-                  {group === 'all' ? 'All' : groupLabels[group]}
+                  <span>{group === 'all' ? 'All' : groupLabels[group]}</span>
+                  <small>{groupCounts[group]}</small>
                 </button>
               ))}
             </nav>
